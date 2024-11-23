@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+<PropertyGroup>
+    <PackageType>Template</PackageType>
+    <PackageVersion>1.0.0</PackageVersion><!--Paket Versiyon Bilgisi-->
+    <PackageId>ZACx.Templates.WebApiProject</PackageId><!--Paket Id Bilgisi-->
+    <Title>ZACx Templates WebApiProject</Title><!--Paket Title Bilgisi-->
+	  <Authors>Zafer ÇİNAR</Authors><!--Paket Yazar Bilgisi-->
+	  <Description>.NET Core 8.0 WebApi proje şablonunu oluşturur.</Description>
+    <!--Paket Açıklama Bilgisi-->
+	  <PackageTags>dotnet-new;zacx;zacx-templates;webapiproject</PackageTags>
+    <!--Paketi Tag Bilgisi-->
+	  <TargetFramework>netstandard2.0</TargetFramework>
+
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" />
+    <Compile Remove="**\*" />
+    <!-- 'dotnet pack' komutu çalıştırıldığında bin ve obj klasörleri oluşmaktadır. 
+    Bu kod ile bu klasörler dahil edilmeyecektir-->
+  </ItemGroup>
+</Project>
+
+

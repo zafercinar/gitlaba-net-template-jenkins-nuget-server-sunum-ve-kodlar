@@ -1,0 +1,30 @@
+﻿{
+  "$schema": "https://json.schemastore.org/template",
+  "icon": "icon.png",
+  "author": "Zafer ÇİNAR",
+  "classifications": [ "WEB", "MVC", "WebApi" ],
+  "identity": "ZACx.Templates.WebApiProject",
+  "name": "ZACx Templates WebApiProject",
+  "description": ".NET 8.0 webapi uygulamasıdır, webapi proje şablon işlemleri için kullanabilirsiniz.",
+  "shortName": "zacxwebapi",
+  "sourceName": "ZACx.Templates.WebApiProject",
+  "tags": {
+    "type": "project",
+    "language": "C#"
+  },
+  "defaultName": "WebApiProject",
+  "preferNameDirectory": true,
+  "symbols": {
+     "ApplicationName": {
+      "type": "parameter",
+      "description": "Web Api uygulamasına ait APPLICATION_NAME bilgisini giriniz.",
+      "datatype": "text",
+      "defaultValue": "ZACx.Templates.WebApiProject.Api",
+      "isRequired": true,
+      "displayName": "Web Api uygulamasına ait APPLICATION_NAME bilgisi",
+      "replaces": "{APPLICATION_NAME}"
+    }
+  }
+}
+
+

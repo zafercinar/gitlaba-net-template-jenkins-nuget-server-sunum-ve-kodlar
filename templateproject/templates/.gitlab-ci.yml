@@ -1,0 +1,13 @@
+stages:
+  - code-quality
+
+code-quality:
+  stage: code-quality
+  image: mcr.microsoft.com/dotnet/sdk:8.0
+  script:
+    - dotnet sonarscanner begin /k:"{APPLICATION_NAME}" -d:sonar.host.url="$SONAR_URL" -d:sonar.token="$SONAR_LOGIN" 
+    - dotnet build ./src/Api
+    - dotnet sonarscanner end -d:sonar.token="$SONAR_LOGIN"
+  allow_failure: true    
+  only:
+    - master

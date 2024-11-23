@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  nuget-server:
+    image: loicsharma/baget:latest
+    container_name: nuget-server
+    ports:
+      - "5555:80"
+    env_file:
+      - baget.env
+    volumes:
+      - ./baget-data:/var/baget
+    restart: unless-stopped
+    
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./certs:/etc/nginx/certs
+    restart: unless-stopped    
+
+## Terminalde bulunduğunuz dizinde docker-compose up -d komutunu çalıştırarak Nuget BaGet server’ı başlatabilirsiniz.
+## Nuget BaGet server’in web arayüzüne erişmek için tarayıcınızda http://localhost:5555 adresine gidebilirsiniz.    

@@ -1,0 +1,33 @@
+pipeline {
+	agent any
+	environment {
+	    PROCEED_TO_DEPLOY=true
+		PATH="/var/jenkins/.dotnet/tools:$PATH"		
+    }
+	stages {
+		stage('Checkout') {
+			when{
+				expression
+				{
+					return env.PROCEED_TO_DEPLOY
+				}
+			}
+			steps {
+				checkout scm
+			}
+		}
+		stage('Nuget & Project Process') {
+			when{
+				expression
+				{
+					return env.PROCEED_TO_DEPLOY
+				}
+			}
+			steps {      
+                sh "dotnet pack Templates.csproj"
+                sh "dotnet new install ."
+			}
+		}		
+	}
+}
+
